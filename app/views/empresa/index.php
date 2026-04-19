@@ -1,5 +1,5 @@
 <section class="panel-card">
-    <form method="post" action="<?= url('empresa/update') ?>">
+    <form method="post" action="<?= url('empresa/update') ?>" enctype="multipart/form-data">
         <?= csrf_field() ?>
         <div class="alert alert-info py-2 mb-3">
             Configuración global de la empresa. Los logos y el correo IMAP definidos aquí se usarán como base para
@@ -20,8 +20,16 @@
             <div class="col-md-4"><label>Sitio web</label><input class="form-control form-control-sm" name="sitio_web" placeholder="https://..." value="<?= htmlspecialchars($config['sitio_web'] ?? '', ENT_QUOTES) ?>"></div>
 
             <div class="col-md-3"><label>Moneda</label><input class="form-control form-control-sm" name="moneda" value="<?= htmlspecialchars($config['moneda'] ?? 'USD', ENT_QUOTES) ?>"></div>
-            <div class="col-md-4"><label>Logo color (URL)</label><input class="form-control form-control-sm" name="logo_color_url" placeholder="https://..." value="<?= htmlspecialchars($config['logo_color_url'] ?? '', ENT_QUOTES) ?>"></div>
-            <div class="col-md-5"><label>Logo blanco (URL)</label><input class="form-control form-control-sm" name="logo_blanco_url" placeholder="https://..." value="<?= htmlspecialchars($config['logo_blanco_url'] ?? '', ENT_QUOTES) ?>"></div>
+            <div class="col-md-4">
+                <label>Logo color (archivo)</label>
+                <input type="file" class="form-control form-control-sm" name="logo_color_file" accept=".jpg,.jpeg,.png,.webp,.svg,image/*">
+                <small class="text-muted d-block">Actual: <?= htmlspecialchars($config['logo_color_url'] ?? 'No configurado', ENT_QUOTES) ?></small>
+            </div>
+            <div class="col-md-5">
+                <label>Logo blanco (archivo)</label>
+                <input type="file" class="form-control form-control-sm" name="logo_blanco_file" accept=".jpg,.jpeg,.png,.webp,.svg,image/*">
+                <small class="text-muted d-block">Actual: <?= htmlspecialchars($config['logo_blanco_url'] ?? 'No configurado', ENT_QUOTES) ?></small>
+            </div>
 
             <div class="col-12 mt-2">
                 <h6 class="mb-1">Correo IMAP para reportes y notificaciones</h6>

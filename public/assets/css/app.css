@@ -264,8 +264,8 @@ body.context-collapsed .atl-expand-context-btn { display: inline-flex; align-ite
 
 /* Sidebar optimizado (versión simple) */
 .sidebar {
-  width: 72px;
-  min-width: 72px;
+  width: 220px;
+  min-width: 220px;
   background: var(--atl-sidebar);
   color: #fff;
   min-height: 100vh;
@@ -305,11 +305,12 @@ body.context-collapsed .atl-expand-context-btn { display: inline-flex; align-ite
 .sidebar-link {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 10px;
   color: #fff;
   text-decoration: none;
-  padding: 10px 0;
-  border-radius: 999px 0 0 999px;
+  padding: 10px 14px;
+  border-radius: 10px;
   margin-left: 8px;
   margin-right: -1px;
   font-size: 13px;
@@ -318,7 +319,7 @@ body.context-collapsed .atl-expand-context-btn { display: inline-flex; align-ite
 .sidebar-link:hover { background: rgba(255,255,255,.16); color: #fff; }
 .sidebar-link.active { background: #fff; color: var(--atl-primary); font-weight: 600; }
 .sidebar-link i { width: 16px; text-align: center; }
-.sidebar-link span { display: none; }
+.sidebar-link span { display: inline-block; }
 .sidebar-foot { margin-top: auto; display: grid; gap: 8px; }
 .sidebar-user {
   width: 30px;
@@ -331,7 +332,7 @@ body.context-collapsed .atl-expand-context-btn { display: inline-flex; align-ite
   justify-content: center;
   font-size: 11px;
   font-weight: 600;
-  margin-left: 20px;
+  margin-left: 14px;
 }
 body.sidebar-collapsed .sidebar { width: 72px; min-width: 72px; }
 body.sidebar-collapsed .sidebar-brand,

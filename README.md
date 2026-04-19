@@ -101,7 +101,7 @@ Esto garantiza trazabilidad y despliegue controlado a producción.
 
 La sección **Empresa** centraliza la configuración global de:
 
-- Logo color y logo blanco (URLs de marca para interfaces y reportes).
+- Logo color y logo blanco (archivos de marca para interfaces y reportes).
 - Correo IMAP corporativo (host, puerto, cifrado y remitente).
 
 Estos valores deben tomarse como base en **todas** las implementaciones del proyecto (informes, notificaciones, módulos actuales/futuros e integraciones por chat).
