@@ -41,6 +41,7 @@ Ejecuta en este orden:
 9. `database/migrations/009_insert_admin_user.sql`
 10. `database/migrations/010_create_configuracion_empresa_table.sql`
 11. `database/migrations/011_insert_empresa_permissions.sql`
+12. `database/migrations/012_alter_configuracion_empresa_add_logos_imap.sql`
 
 Ejemplo:
 
@@ -95,3 +96,12 @@ Regla aplicada en este proyecto:
   - `database/seeds.sql` si cambia dato base inicial
 
 Esto garantiza trazabilidad y despliegue controlado a producción.
+
+## Configuración global de marca y correo IMAP
+
+La sección **Empresa** centraliza la configuración global de:
+
+- Logo color y logo blanco (archivos de marca para interfaces y reportes).
+- Correo IMAP corporativo (host, puerto, cifrado y remitente).
+
+Estos valores deben tomarse como base en **todas** las implementaciones del proyecto (informes, notificaciones, módulos actuales/futuros e integraciones por chat).
