@@ -7,4 +7,6 @@ INSERT INTO permisos (id, nombre, slug, modulo, descripcion, created_at, updated
 (6,'Gestionar usuarios','gestionar_usuarios','usuarios','Permite listar usuarios',NOW(),NOW()),
 (7,'Crear usuarios','crear_usuarios','usuarios','Permite crear usuarios',NOW(),NOW()),
 (8,'Editar usuarios','editar_usuarios','usuarios','Permite editar usuarios',NOW(),NOW()),
-(9,'Eliminar usuarios','eliminar_usuarios','usuarios','Permite eliminar usuarios',NOW(),NOW());
+(9,'Eliminar usuarios','eliminar_usuarios','usuarios','Permite eliminar usuarios',NOW(),NOW()),
+(10,'Gestionar empresa','gestionar_empresa','empresa','Permite visualizar la configuración de la empresa',NOW(),NOW()),
+(11,'Editar empresa','editar_empresa','empresa','Permite actualizar los datos de la empresa',NOW(),NOW());
