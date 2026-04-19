@@ -6,7 +6,7 @@
     <title><?= htmlspecialchars($title ?? 'Panel', ENT_QUOTES) ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/assets/css/app.css">
+    <link rel="stylesheet" href="<?= url('public/assets/css/app.css') ?>">
 </head>
 <body>
 <div class="app-shell">
@@ -21,6 +21,6 @@
     </main>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
-<script src="/public/assets/js/app.js"></script>
+<script src="<?= url('public/assets/js/app.js') ?>"></script>
 </body>
 </html>

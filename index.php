@@ -31,4 +31,4 @@ require BASE_PATH . '/app/helpers/functions.php';
 $router = new App\Core\Router();
 require BASE_PATH . '/routes/web.php';
 
-$router->dispatch($_SERVER['REQUEST_METHOD'], parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?: '/');
+$router->dispatch($_SERVER['REQUEST_METHOD'], request_path());

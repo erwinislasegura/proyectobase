@@ -1,4 +1,4 @@
-<form method="post" action="<?= $selected ? '/roles/update' : '/roles/store' ?>" class="panel-card">
+<form method="post" action="<?= url($selected ? 'roles/update' : 'roles/store') ?>" class="panel-card">
     <?= csrf_field() ?>
     <?php if ($selected): ?><input type="hidden" name="id" value="<?= (int) $selected['id'] ?>"><?php endif; ?>
     <div class="row g-2">

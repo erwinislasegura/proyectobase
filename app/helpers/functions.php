@@ -55,8 +55,47 @@ function db(): PDO
 
 function redirect(string $path): never
 {
-    header('Location: ' . $path);
+    header('Location: ' . url($path));
     exit;
+}
+
+function base_path_url(): string
+{
+    $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+    $base = str_replace('\\', '/', dirname($scriptName));
+    if ($base === '/' || $base === '\\' || $base === '.') {
+        return '';
+    }
+
+    return rtrim($base, '/');
+}
+
+function url(string $path = ''): string
+{
+    $base = base_path_url();
+    $normalizedPath = ltrim($path, '/');
+
+    if ($normalizedPath === '') {
+        return ($base !== '' ? $base : '') . '/';
+    }
+
+    return ($base !== '' ? $base : '') . '/' . $normalizedPath;
+}
+
+function request_path(): string
+{
+    $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+    $base = base_path_url();
+
+    if ($base !== '' && str_starts_with($uri, $base)) {
+        $uri = substr($uri, strlen($base)) ?: '/';
+    }
+
+    if ($uri === '') {
+        return '/';
+    }
+
+    return '/' . ltrim($uri, '/');
 }
 
 function csrf_token(): string
