@@ -1,8 +1,6 @@
 <section class="panel-card">
     <form method="post" action="<?= url('empresa/update') ?>">
         <?= csrf_field() ?>
-        <h4 class="mb-3">Datos de la empresa</h4>
-
         <div class="row g-2">
             <div class="col-md-4"><label>Nombre comercial</label><input class="form-control form-control-sm" name="nombre" required value="<?= htmlspecialchars($config['nombre'] ?? '', ENT_QUOTES) ?>"></div>
             <div class="col-md-4"><label>Razón social</label><input class="form-control form-control-sm" name="razon_social" value="<?= htmlspecialchars($config['razon_social'] ?? '', ENT_QUOTES) ?>"></div>
