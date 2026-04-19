@@ -11,12 +11,64 @@
 * { box-sizing: border-box; }
 body { margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--text); background: var(--bg); }
 .app-shell { display: flex; min-height: 100vh; }
-.sidebar { width: 78px; background: var(--fuchsia); padding: 18px 10px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
-.brand { color: #fff; font-weight: 700; }
-.sidebar nav { display: flex; flex-direction: column; gap: 12px; width: 100%; align-items: center; }
-.nav-icon { width: 44px; height: 44px; border-radius: 14px; color: #fff; display: flex; align-items: center; justify-content: center; text-decoration: none; }
-.nav-icon.active { background: #fff; color: var(--fuchsia); }
-.nav-icon.logout { margin-top: auto; background: rgba(255,255,255,0.2); }
+.sidebar {
+  width: 82px;
+  min-width: 82px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, #f83763 0%, #f43170 60%, #f6149a 100%);
+  padding: 18px 0 18px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 8px 0 24px rgba(42, 14, 36, 0.14);
+  transition: width .28s cubic-bezier(0.2, 0.8, 0.2, 1), padding .28s cubic-bezier(0.2, 0.8, 0.2, 1);
+  overflow: hidden;
+}
+.sidebar:hover, .sidebar:focus-within {
+  width: 244px;
+  min-width: 244px;
+  padding-right: 0;
+}
+.brand { color: #fff; font-weight: 700; width: 100%; white-space: nowrap; display: flex; align-items: center; gap: 10px; padding: 0 12px; min-height: 34px; letter-spacing: .2px; }
+.brand-text { opacity: 0; transform: translateX(-8px); transition: opacity .2s ease, transform .26s ease; font-weight: 600; font-size: 14px; }
+.sidebar:hover .brand-text, .sidebar:focus-within .brand-text { opacity: 1; transform: translateX(0); }
+.sidebar nav { display: flex; flex-direction: column; gap: 10px; width: 100%; align-items: stretch; overflow-y: auto; padding-right: 0; }
+.nav-icon { width: 100%; min-height: 46px; border-radius: 14px; color: #fff; display: flex; align-items: center; gap: 12px; text-decoration: none; padding: 0 14px; white-space: nowrap; position: relative; transition: background-color .18s ease, transform .22s ease, box-shadow .22s ease; }
+.nav-icon:hover { background: rgba(255,255,255,0.18); transform: translateX(3px); }
+.nav-icon.active {
+  background: #fff;
+  color: var(--fuchsia);
+  border-radius: 999px 0 0 999px;
+  margin-right: -1px;
+  padding-right: 22px;
+  box-shadow: 0 10px 18px rgba(27, 39, 64, 0.2);
+  transform: translateX(2px);
+}
+.nav-icon.active::before,
+.nav-icon.active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  background: var(--fuchsia);
+}
+.nav-icon.active::before {
+  top: -16px;
+  border-bottom-right-radius: 16px;
+}
+.nav-icon.active::after {
+  bottom: -16px;
+  border-top-right-radius: 16px;
+}
+.nav-icon.logout { margin-top: auto; background: rgba(255,255,255,0.22); }
+.nav-icon i { width: 20px; text-align: center; flex-shrink: 0; }
+.nav-text { opacity: 0; transform: translateX(-8px); transition: opacity .2s ease, transform .26s ease; font-size: 14px; font-weight: 500; pointer-events: none; }
+.sidebar:hover .nav-text, .sidebar:focus-within .nav-text { opacity: 1; transform: translateX(0); }
 .app-content { flex: 1; padding: 18px; }
 .topbar { background: #fff; border-radius: var(--radius); padding: 12px 18px; box-shadow: var(--shadow); display: flex; justify-content: space-between; align-items: center; }
 .topbar h1 { margin: 0; font-size: 20px; }
@@ -42,4 +94,10 @@ body { margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--text);
 .login-card input { border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px; }
 .login-card button { margin-top: 8px; border: none; background: var(--fuchsia); color: #fff; border-radius: 12px; padding: 10px; }
 .error-body { min-height: 100vh; display: grid; place-items: center; } .error-card { background: #fff; padding: 24px; border-radius: 14px; box-shadow: var(--shadow); }
-@media (max-width: 992px){ .panel-grid{grid-template-columns:1fr;} .kpi-grid{grid-template-columns:1fr;} }
+@media (max-width: 992px){
+  .sidebar { width: 72px; min-width: 72px; }
+  .sidebar:hover, .sidebar:focus-within { width: 72px; min-width: 72px; padding-right: 0; }
+  .brand-text, .nav-text { display: none; }
+  .panel-grid{grid-template-columns:1fr;}
+  .kpi-grid{grid-template-columns:1fr;}
+}
