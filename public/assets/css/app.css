@@ -18,7 +18,31 @@ body { margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--text);
 .sidebar:hover .brand-text, .sidebar:focus-within .brand-text { opacity: 1; transform: translateX(0); }
 .sidebar nav { display: flex; flex-direction: column; gap: 12px; width: 100%; align-items: stretch; }
 .nav-icon { width: 100%; min-height: 44px; border-radius: 14px; color: #fff; display: flex; align-items: center; gap: 12px; text-decoration: none; padding: 0 14px; white-space: nowrap; }
-.nav-icon.active { background: #fff; color: var(--fuchsia); }
+.nav-icon { position: relative; }
+.nav-icon.active {
+  background: #fff;
+  color: var(--fuchsia);
+  border-radius: 999px 0 0 999px;
+  padding-right: 22px;
+  box-shadow: 0 6px 14px rgba(27, 39, 64, 0.12);
+}
+.nav-icon.active::before,
+.nav-icon.active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  background: var(--fuchsia);
+}
+.nav-icon.active::before {
+  top: -16px;
+  border-bottom-right-radius: 16px;
+}
+.nav-icon.active::after {
+  bottom: -16px;
+  border-top-right-radius: 16px;
+}
 .nav-icon.logout { margin-top: auto; background: rgba(255,255,255,0.2); }
 .nav-icon i { width: 20px; text-align: center; flex-shrink: 0; }
 .nav-text { opacity: 0; transform: translateX(-8px); transition: opacity .15s ease, transform .2s ease; font-size: 14px; font-weight: 500; pointer-events: none; }
