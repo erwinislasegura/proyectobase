@@ -2,6 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchOverlay = document.getElementById('atlSearchOverlay');
   const searchOpeners = document.querySelectorAll('[data-open-search="1"]');
   const searchClosers = document.querySelectorAll('[data-close-search="1"]');
+  const collapseButton = document.getElementById('atlCollapseContext');
+
+  if (localStorage.getItem('atl_context_collapsed') === '1') {
+    document.body.classList.add('context-collapsed');
+  }
+
+  if (collapseButton) {
+    collapseButton.addEventListener('click', () => {
+      document.body.classList.toggle('context-collapsed');
+      localStorage.setItem('atl_context_collapsed', document.body.classList.contains('context-collapsed') ? '1' : '0');
+    });
+  }
 
   searchOpeners.forEach((button) => {
     button.addEventListener('click', () => {
