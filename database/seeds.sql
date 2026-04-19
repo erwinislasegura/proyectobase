@@ -25,8 +25,8 @@ INSERT INTO rol_permiso (rol_id, permiso_id, created_at) VALUES
 (2,1,NOW()),(2,6,NOW()),(2,8,NOW()),(2,10,NOW()),(2,11,NOW()),
 (3,1,NOW()),(3,10,NOW());
 
-INSERT INTO configuracion_empresa (nombre, razon_social, ruc, correo, telefono, direccion, ciudad, pais, sitio_web, moneda, created_at, updated_at)
-VALUES ('Mi Empresa', 'Mi Empresa S.A.S.', '', 'info@empresa.com', '', '', '', '', '', 'USD', NOW(), NOW());
+INSERT INTO configuracion_empresa (nombre, razon_social, ruc, correo, telefono, direccion, ciudad, pais, sitio_web, moneda, logo_color_url, logo_blanco_url, imap_host, imap_puerto, imap_cifrado, imap_usuario, imap_password, imap_remitente_nombre, imap_remitente_correo, created_at, updated_at)
+VALUES ('Mi Empresa', 'Mi Empresa S.A.S.', '', 'info@empresa.com', '', '', '', '', '', 'USD', '', '', '', 993, 'ssl', '', '', '', '', NOW(), NOW());
 
 INSERT INTO usuarios (nombres, apellidos, correo, telefono, username, password, foto_perfil, rol_id, estado, ultimo_acceso, created_at, updated_at)
 VALUES ('Administrador', 'Principal', 'admin@admin.com', NULL, 'admin', '$2y$12$ezJv4RyjDgputnGrrX5tgeSeS9YsUZ9Xz7RrrfiNpMTP0QZ/suD.K', NULL, 1, 'activo', NULL, NOW(), NOW());
