@@ -2,6 +2,7 @@
 
 use App\Controllers\AuthController;
 use App\Controllers\DashboardController;
+use App\Controllers\EmpresaController;
 use App\Controllers\RolController;
 use App\Controllers\UsuarioController;
 
@@ -22,3 +23,6 @@ $router->post('/usuarios/store', [UsuarioController::class, 'store'], ['auth' =>
 $router->post('/usuarios/update', [UsuarioController::class, 'update'], ['auth' => true, 'permission' => 'editar_usuarios']);
 $router->post('/usuarios/delete', [UsuarioController::class, 'destroy'], ['auth' => true, 'permission' => 'eliminar_usuarios']);
 $router->post('/usuarios/reset-password', [UsuarioController::class, 'resetPassword'], ['auth' => true, 'permission' => 'editar_usuarios']);
+
+$router->get('/empresa', [EmpresaController::class, 'index'], ['auth' => true, 'permission' => 'gestionar_empresa']);
+$router->post('/empresa/update', [EmpresaController::class, 'update'], ['auth' => true, 'permission' => 'editar_empresa']);
