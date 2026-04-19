@@ -62,3 +62,19 @@ CREATE TABLE logs_acceso (
   INDEX idx_logs_usuario_id (usuario_id),
   CONSTRAINT fk_logs_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+CREATE TABLE configuracion_empresa (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(150) NOT NULL,
+  razon_social VARCHAR(180) NULL,
+  ruc VARCHAR(50) NULL,
+  correo VARCHAR(150) NULL,
+  telefono VARCHAR(30) NULL,
+  direccion VARCHAR(255) NULL,
+  ciudad VARCHAR(100) NULL,
+  pais VARCHAR(100) NULL,
+  sitio_web VARCHAR(180) NULL,
+  moneda VARCHAR(10) NOT NULL DEFAULT 'USD',
+  created_at DATETIME NOT NULL,
+  updated_at DATETIME NOT NULL
+) ENGINE=InnoDB;
