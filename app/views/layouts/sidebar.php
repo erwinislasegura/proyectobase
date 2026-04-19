@@ -1,4 +1,7 @@
-<?php $user = auth_user(); ?>
+<?php
+$user = auth_user();
+$canManageEmpresa = has_permission('gestionar_empresa') || (int) ($user['rol_id'] ?? 0) === 1;
+?>
 <aside class="sidebar">
     <div class="brand">PA <span class="brand-text">Panel Admin</span></div>
     <nav>
@@ -15,7 +18,7 @@
                 <i class="fa-solid fa-users"></i><span class="nav-text">Usuarios</span>
             </a>
         <?php endif; ?>
-        <?php if (has_permission('gestionar_empresa')): ?>
+        <?php if ($canManageEmpresa): ?>
             <a class="nav-icon <?= str_starts_with(request_path(), '/empresa') ? 'active' : '' ?>" href="<?= url('empresa') ?>" title="Empresa">
                 <i class="fa-solid fa-building"></i><span class="nav-text">Empresa</span>
             </a>
