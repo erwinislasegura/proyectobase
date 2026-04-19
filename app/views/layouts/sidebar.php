@@ -42,3 +42,23 @@ $canManageEmpresa = has_permission('gestionar_empresa') || (int) ($user['rol_id'
         <div class="sidebar-user" title="<?= htmlspecialchars($user['nombre'] ?? 'Usuario', ENT_QUOTES) ?>"><?= strtoupper(substr($user['nombre'] ?? 'A', 0, 1)) ?></div>
     </div>
 </aside>
+
+<button type="button" class="atl-expand-context-btn" id="atlExpandContext" aria-label="Expandir panel contextual">
+    <i class="fa-solid fa-chevron-right"></i>
+</button>
+
+<div class="atl-search-overlay" id="atlSearchOverlay" hidden>
+    <div class="atl-search-panel">
+        <div class="atl-search-head">
+            <strong>Búsqueda rápida</strong>
+            <button type="button" data-close-search="1"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <input class="form-control form-control-sm" placeholder="Buscar usuarios, roles, vistas...">
+        <div class="atl-search-list">
+            <a href="<?= url('dashboard') ?>">Ir a Dashboard</a>
+            <?php if ($canManageRoles): ?><a href="<?= url('roles') ?>">Ir a Roles</a><?php endif; ?>
+            <?php if ($canManageUsuarios): ?><a href="<?= url('usuarios') ?>">Ir a Usuarios</a><?php endif; ?>
+            <?php if ($canManageEmpresa): ?><a href="<?= url('empresa') ?>">Ir a Empresa</a><?php endif; ?>
+        </div>
+    </div>
+</div>
