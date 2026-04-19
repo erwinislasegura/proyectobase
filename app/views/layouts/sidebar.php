@@ -113,21 +113,13 @@ $context = $contextMap[$module] ?? $contextMap['dashboard'];
                     </nav>
                 </details>
             <?php endforeach; ?>
-
-            <hr>
-
-            <details class="atl-context-group" open>
-                <summary>Módulos</summary>
-                <nav>
-                    <a class="atl-context-link <?= $module === 'dashboard' ? 'active' : '' ?>" href="<?= url('dashboard') ?>"><span>Dashboard</span><i class="fa-solid fa-angle-right"></i></a>
-                    <?php if ($canManageRoles): ?><a class="atl-context-link <?= $module === 'roles' ? 'active' : '' ?>" href="<?= url('roles') ?>"><span>Roles</span><i class="fa-solid fa-angle-right"></i></a><?php endif; ?>
-                    <?php if ($canManageUsuarios): ?><a class="atl-context-link <?= $module === 'usuarios' ? 'active' : '' ?>" href="<?= url('usuarios') ?>"><span>Usuarios</span><i class="fa-solid fa-angle-right"></i></a><?php endif; ?>
-                    <?php if ($canManageEmpresa): ?><a class="atl-context-link <?= $module === 'empresa' ? 'active' : '' ?>" href="<?= url('empresa') ?>"><span>Empresa</span><i class="fa-solid fa-angle-right"></i></a><?php endif; ?>
-                </nav>
-            </details>
         </div>
     </div>
 </aside>
+
+<button type="button" class="atl-expand-context-btn" id="atlExpandContext" aria-label="Expandir panel contextual">
+    <i class="fa-solid fa-chevron-right"></i>
+</button>
 
 <div class="atl-search-overlay" id="atlSearchOverlay" hidden>
     <div class="atl-search-panel">

@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchOpeners = document.querySelectorAll('[data-open-search="1"]');
   const searchClosers = document.querySelectorAll('[data-close-search="1"]');
   const collapseButton = document.getElementById('atlCollapseContext');
+  const expandButton = document.getElementById('atlExpandContext');
 
   if (localStorage.getItem('atl_context_collapsed') === '1') {
     document.body.classList.add('context-collapsed');
@@ -12,6 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
     collapseButton.addEventListener('click', () => {
       document.body.classList.toggle('context-collapsed');
       localStorage.setItem('atl_context_collapsed', document.body.classList.contains('context-collapsed') ? '1' : '0');
+    });
+  }
+
+  if (expandButton) {
+    expandButton.addEventListener('click', () => {
+      document.body.classList.remove('context-collapsed');
+      localStorage.setItem('atl_context_collapsed', '0');
     });
   }
 
