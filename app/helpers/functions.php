@@ -140,7 +140,21 @@ function has_permission(string $slug): bool
         return false;
     }
 
-    return in_array($slug, $user['permissions'] ?? [], true);
+    if ((int) ($user['rol_id'] ?? 0) === 1) {
+        return true;
+    }
+
+    $permissions = $user['permissions'] ?? [];
+    if (in_array($slug, $permissions, true)) {
+        return true;
+    }
+
+    $stmt = db()->prepare('SELECT p.slug FROM permisos p INNER JOIN rol_permiso rp ON rp.permiso_id=p.id INNER JOIN usuarios u ON u.rol_id=rp.rol_id WHERE u.id=:id');
+    $stmt->execute(['id' => (int) ($user['id'] ?? 0)]);
+    $freshPermissions = array_column($stmt->fetchAll(), 'slug');
+    $_SESSION['user']['permissions'] = $freshPermissions;
+
+    return in_array($slug, $freshPermissions, true);
 }
 
 function require_permission(string $slug): void
