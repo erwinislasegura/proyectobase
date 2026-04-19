@@ -14,14 +14,19 @@ INSERT INTO permisos (id, nombre, slug, modulo, descripcion, created_at, updated
 (6,'Gestionar usuarios','gestionar_usuarios','usuarios','Permite listar usuarios',NOW(),NOW()),
 (7,'Crear usuarios','crear_usuarios','usuarios','Permite crear usuarios',NOW(),NOW()),
 (8,'Editar usuarios','editar_usuarios','usuarios','Permite editar usuarios',NOW(),NOW()),
-(9,'Eliminar usuarios','eliminar_usuarios','usuarios','Permite eliminar usuarios',NOW(),NOW());
+(9,'Eliminar usuarios','eliminar_usuarios','usuarios','Permite eliminar usuarios',NOW(),NOW()),
+(10,'Gestionar empresa','gestionar_empresa','empresa','Permite visualizar la configuración de la empresa',NOW(),NOW()),
+(11,'Editar empresa','editar_empresa','empresa','Permite actualizar los datos de la empresa',NOW(),NOW());
 
 INSERT INTO rol_permiso (rol_id, permiso_id, created_at)
 SELECT 1, p.id, NOW() FROM permisos p;
 
 INSERT INTO rol_permiso (rol_id, permiso_id, created_at) VALUES
-(2,1,NOW()),(2,6,NOW()),(2,8,NOW()),
-(3,1,NOW());
+(2,1,NOW()),(2,6,NOW()),(2,8,NOW()),(2,10,NOW()),(2,11,NOW()),
+(3,1,NOW()),(3,10,NOW());
+
+INSERT INTO configuracion_empresa (nombre, razon_social, ruc, correo, telefono, direccion, ciudad, pais, sitio_web, moneda, created_at, updated_at)
+VALUES ('Mi Empresa', 'Mi Empresa S.A.S.', '', 'info@empresa.com', '', '', '', '', '', 'USD', NOW(), NOW());
 
 INSERT INTO usuarios (nombres, apellidos, correo, telefono, username, password, foto_perfil, rol_id, estado, ultimo_acceso, created_at, updated_at)
 VALUES ('Administrador', 'Principal', 'admin@admin.com', NULL, 'admin', '$2y$12$ezJv4RyjDgputnGrrX5tgeSeS9YsUZ9Xz7RrrfiNpMTP0QZ/suD.K', NULL, 1, 'activo', NULL, NOW(), NOW());
