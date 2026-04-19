@@ -18,7 +18,7 @@ body { margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--text);
   position: sticky;
   top: 0;
   background: linear-gradient(180deg, #f83763 0%, #f43170 60%, #f6149a 100%);
-  padding: 18px 10px;
+  padding: 18px 0 18px 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -31,18 +31,19 @@ body { margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--text);
 .sidebar:hover, .sidebar:focus-within {
   width: 244px;
   min-width: 244px;
-  padding-right: 14px;
+  padding-right: 0;
 }
 .brand { color: #fff; font-weight: 700; width: 100%; white-space: nowrap; display: flex; align-items: center; gap: 10px; padding: 0 12px; min-height: 34px; letter-spacing: .2px; }
 .brand-text { opacity: 0; transform: translateX(-8px); transition: opacity .2s ease, transform .26s ease; font-weight: 600; font-size: 14px; }
 .sidebar:hover .brand-text, .sidebar:focus-within .brand-text { opacity: 1; transform: translateX(0); }
-.sidebar nav { display: flex; flex-direction: column; gap: 10px; width: 100%; align-items: stretch; overflow-y: auto; padding-right: 2px; }
+.sidebar nav { display: flex; flex-direction: column; gap: 10px; width: 100%; align-items: stretch; overflow-y: auto; padding-right: 0; }
 .nav-icon { width: 100%; min-height: 46px; border-radius: 14px; color: #fff; display: flex; align-items: center; gap: 12px; text-decoration: none; padding: 0 14px; white-space: nowrap; position: relative; transition: background-color .18s ease, transform .22s ease, box-shadow .22s ease; }
 .nav-icon:hover { background: rgba(255,255,255,0.18); transform: translateX(3px); }
 .nav-icon.active {
   background: #fff;
   color: var(--fuchsia);
   border-radius: 999px 0 0 999px;
+  margin-right: -1px;
   padding-right: 22px;
   box-shadow: 0 10px 18px rgba(27, 39, 64, 0.2);
   transform: translateX(2px);
@@ -95,7 +96,7 @@ body { margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--text);
 .error-body { min-height: 100vh; display: grid; place-items: center; } .error-card { background: #fff; padding: 24px; border-radius: 14px; box-shadow: var(--shadow); }
 @media (max-width: 992px){
   .sidebar { width: 72px; min-width: 72px; }
-  .sidebar:hover, .sidebar:focus-within { width: 72px; min-width: 72px; padding-right: 10px; }
+  .sidebar:hover, .sidebar:focus-within { width: 72px; min-width: 72px; padding-right: 0; }
   .brand-text, .nav-text { display: none; }
   .panel-grid{grid-template-columns:1fr;}
   .kpi-grid{grid-template-columns:1fr;}
