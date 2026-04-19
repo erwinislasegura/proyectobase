@@ -129,7 +129,7 @@ function auth_user(): ?array
 function require_auth(): void
 {
     if (!auth_user()) {
-        redirect('/login');
+        redirect('/');
     }
 }
 

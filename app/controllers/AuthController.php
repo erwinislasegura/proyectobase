@@ -54,6 +54,6 @@ class AuthController extends Controller
     public function logout(): void
     {
         session_destroy();
-        redirect('/login');
+        redirect('/');
     }
 }
