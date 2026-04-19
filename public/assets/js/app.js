@@ -2,17 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchOverlay = document.getElementById('atlSearchOverlay');
   const searchOpeners = document.querySelectorAll('[data-open-search="1"]');
   const searchClosers = document.querySelectorAll('[data-close-search="1"]');
-  const sidebarToggle = document.getElementById('sidebarToggle');
-  if (localStorage.getItem('sidebar_collapsed') === '1') {
-    document.body.classList.add('sidebar-collapsed');
-  }
-  if (sidebarToggle) {
-    sidebarToggle.addEventListener('click', () => {
-      document.body.classList.toggle('sidebar-collapsed');
-      localStorage.setItem('sidebar_collapsed', document.body.classList.contains('sidebar-collapsed') ? '1' : '0');
-    });
-  }
-
   searchOpeners.forEach((button) => {
     button.addEventListener('click', () => {
       if (!searchOverlay) return;
@@ -39,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (main) {
     new Chart(main, {
       type: 'line',
-      data: { labels: ['Ene','Feb','Mar','Abr','May','Jun'], datasets: [{ label: 'Usuarios', data: [12,18,17,25,31,40], borderColor: '#0C66E4', tension: 0.35 }] },
+      data: { labels: ['Ene','Feb','Mar','Abr','May','Jun'], datasets: [{ label: 'Usuarios', data: [12,18,17,25,31,40], borderColor: '#F5005F', tension: 0.35 }] },
       options: { plugins: { legend: { display: false } } }
     });
   }
@@ -47,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (state) {
     new Chart(state, {
       type: 'doughnut',
-      data: { labels: ['Activos','Inactivos'], datasets: [{ data: [84,16], backgroundColor: ['#0C66E4','#B3DFD6'] }] },
+      data: { labels: ['Activos','Inactivos'], datasets: [{ data: [84,16], backgroundColor: ['#F5005F','#FDB0D0'] }] },
       options: { plugins: { legend: { position: 'bottom' } } }
     });
   }

@@ -8,10 +8,7 @@ $canManageEmpresa = has_permission('gestionar_empresa') || (int) ($user['rol_id'
 
 <aside class="sidebar" id="mainSidebar">
     <div class="sidebar-head">
-        <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Contraer menú">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        <span class="sidebar-brand">Panel Admin</span>
+        <span class="sidebar-logo"><i class="fa-solid fa-circle-dot"></i></span>
     </div>
 
     <nav class="sidebar-nav">
