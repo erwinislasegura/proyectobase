@@ -75,6 +75,15 @@ CREATE TABLE configuracion_empresa (
   pais VARCHAR(100) NULL,
   sitio_web VARCHAR(180) NULL,
   moneda VARCHAR(10) NOT NULL DEFAULT 'USD',
+  logo_color_url VARCHAR(255) NULL,
+  logo_blanco_url VARCHAR(255) NULL,
+  imap_host VARCHAR(180) NULL,
+  imap_puerto INT NOT NULL DEFAULT 993,
+  imap_cifrado VARCHAR(20) NOT NULL DEFAULT 'ssl',
+  imap_usuario VARCHAR(180) NULL,
+  imap_password VARCHAR(255) NULL,
+  imap_remitente_nombre VARCHAR(150) NULL,
+  imap_remitente_correo VARCHAR(180) NULL,
   created_at DATETIME NOT NULL,
   updated_at DATETIME NOT NULL
 ) ENGINE=InnoDB;
