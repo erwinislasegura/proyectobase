@@ -39,6 +39,8 @@ Ejecuta en este orden:
 7. `database/migrations/007_insert_initial_roles.sql`
 8. `database/migrations/008_insert_role_permissions.sql`
 9. `database/migrations/009_insert_admin_user.sql`
+10. `database/migrations/010_create_configuracion_empresa_table.sql`
+11. `database/migrations/011_insert_empresa_permissions.sql`
 
 Ejemplo:
 
